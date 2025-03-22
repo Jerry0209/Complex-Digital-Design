@@ -1,0 +1,44 @@
+# Vivado generated files and directories
+*.jou
+*.log
+*.str
+# *.xpr
+*.pb
+*.veo
+*.vho
+*.rpt
+*.html
+*.tcl~
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.srcs/**/bd/*/hdl/
+*.srcs/**/bd/*/ip/
+*.srcs/**/bd/*/synth/
+*.srcs/**/bd/*/sim/
+*.srcs/**/bd/*/*.xdc
+*.srcs/**/bd/*/hw_handoff/
+*.srcs/**/bd/*/wrapper/
+*.xci.elab/
+xsim.dir/
+webtalk/
+# Generated bit files
+*.bit
+*.bin
+*.mcs
+*.svf
+*.dcp
+# SDK and software files
+.sdk/
+*.sws
+.Xil/
+*.swp
+*_hw_platform_*
+# System files
+.DS_Store
+.directory
+.Trash-*
+.nfs*
+Thumbs.db
