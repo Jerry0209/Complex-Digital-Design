@@ -29,6 +29,7 @@ module uart_top #(
     input   wire   iClk, iRst,
     input   wire   iRx,
     output  wire   oTx
+//    output  wire   oLED
   );
   
   // Buffer to exchange data between Pynq-Z2 and laptop
@@ -42,6 +43,10 @@ module uart_top #(
   localparam s_DONE         = 3'b100;
    
   // Declare all variables needed for the finite state machine 
+  
+  // -> the LED
+  // reg         rLED;
+
   // -> the FSM state
   reg [2:0]   rFSM;  
   
@@ -80,11 +85,25 @@ module uart_top #(
      
   reg [$clog2(NBYTES):0] rCnt;
   
+
+// Not necessary, debug LED  
+//  always @(*)
+//  begin
+  
+//      if (wTxDone)
+//        rLED <= 1;
+//      else
+//        rLED <= 0;
+//  end
+  
+  
+  
   always @(posedge iClk)
   begin
   
+  
   // reset all registers upon reset
-  if (iRst == 1 ) 
+  if (iRst == 1) 
     begin
       rFSM <= s_IDLE;
       rTxStart <= 0;
@@ -99,39 +118,34 @@ module uart_top #(
         s_IDLE :
           begin
             rFSM <= s_WAIT_RX;
+//            rCnt <= 0; // miao a!!!!!!!!!!!!!!! From Cory, if you misconnect wires, you miss everything
           end
           
         s_WAIT_RX :
-//          begin
-//          if ((rCnt < NBYTES) && (wRxDone == 0)) 
-//              begin
-//                rFSM <= s_WAIT_RX;
-////                rBuffer <= "Hello World!";
-//                rBuffer <= {wRxByte, rBuffer[NBYTES*8-1:8]};
-////                rBuffer[NBYTES*8-1:NBYTES*8-8] <= wRxByte;            // we store the received byte to uppermost byte
-////                rBuffer <= {rBuffer[NBYTES*8-9:0] , 8'b0000_0000};    // we shift from left to right (shift in), so LSB will be in LSB
-//                rCnt <= rCnt + 1;
-//              end else begin
-//                rCnt <= 0;       
-//                rFSM <= s_TX; // data received, start to transmit the received data
-//              end
-            
-            
-//          end
         begin
-            if (wRxDone) begin  // 只有当 wRxDone 置 1 时才存入数据
-//                rBuffer <= {wRxByte, rBuffer[NBYTES*8-1:8]};  // 左移，接收数据进入高位
-//                rBuffer <= {rBuffer[NBYTES*7-1:0], wRxByte};  // new received data stored in LSB, then shift to the left
-                rBuffer <= {rBuffer[NBYTES*8-9:0], wRxByte};
+
+            // Method 1: to avoid latch, we need to keep the current value of rCnt and rFSM
+            rCnt <= rCnt; // Keep the current value
+            rFSM <= rFSM; 
+
+            if (wRxDone) begin  // Only when wRxDone is set to 1, then the received data will be removed to rBuffer 
+                rBuffer <= {rBuffer[NBYTES*8-9:0], wRxByte}; // New received data stored in LSB, old data is shifted to the left
                 rCnt <= rCnt + 1;
             end 
+            
+
+            // Method 2: to avoid latch, make sure that the value of rCnt and rFSM are updated in all branches
+            // else begin
+            //   rBuffer <= rBuffer; // Keep the current value
+            //   rCnt <= rCnt;       
+            // end
         
-            if (rCnt >= NBYTES) begin  // 接收足够字节后，切换到 s_TX 发送
+            if (rCnt >= NBYTES) begin  // when the buffer is full, we can start to send the data
                 rCnt <= 0;       
                 rFSM <= s_TX; 
             end 
             else begin
-                rFSM <= s_WAIT_RX;  // 继续等待接收数据
+                rFSM <= s_WAIT_RX;  // wait for the next byte
             end
         end 
              
@@ -174,6 +188,8 @@ module uart_top #(
              
           endcase
       end
-    end       
+    end
+    
+    // assign oLED = rLED;       
     
 endmodule
