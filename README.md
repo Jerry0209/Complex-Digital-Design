@@ -1,1 +1,3 @@
-"# Complex-Digital-Design" 
+"Complex-Digital-Design" 
+
+Vivado 2024.2
