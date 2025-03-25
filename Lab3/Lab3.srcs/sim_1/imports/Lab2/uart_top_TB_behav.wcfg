@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="uart_top_TB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="uart_top_TB" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="11.000001 us"></ZoomEndTime>
+      <Cursor1Time time="11.000000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="120"></NameColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="20" />
+   <wvobject fp_name="/uart_top_TB/rClk" type="logic">
+      <obj_property name="ElementShortName">rClk</obj_property>
+      <obj_property name="ObjectShortName">rClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/rRst" type="logic">
+      <obj_property name="ElementShortName">rRst</obj_property>
+      <obj_property name="ObjectShortName">rRst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/wRx" type="logic">
+      <obj_property name="ElementShortName">wRx</obj_property>
+      <obj_property name="ObjectShortName">wRx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/wTx" type="logic">
+      <obj_property name="ElementShortName">wTx</obj_property>
+      <obj_property name="ObjectShortName">wTx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/CLK_FREQ_inst" type="array">
+      <obj_property name="ElementShortName">CLK_FREQ_inst[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CLK_FREQ_inst[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/BAUD_RATE_inst" type="array">
+      <obj_property name="ElementShortName">BAUD_RATE_inst[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BAUD_RATE_inst[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/CLOCK_PERIOD" type="array">
+      <obj_property name="ElementShortName">CLOCK_PERIOD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CLOCK_PERIOD[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/uart_top_inst/rBuffer" type="array">
+      <obj_property name="ElementShortName">rBuffer[95:0]</obj_property>
+      <obj_property name="ObjectShortName">rBuffer[95:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/uart_top_inst/UART_RX_INST/oRxDone" type="logic">
+      <obj_property name="ElementShortName">oRxDone</obj_property>
+      <obj_property name="ObjectShortName">oRxDone</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/uart_top_inst/UART_RX_INST/oRxByte" type="array">
+      <obj_property name="ElementShortName">oRxByte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">oRxByte[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/uart_top_inst/rCnt" type="array">
+      <obj_property name="ElementShortName">rCnt[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rCnt[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/uart_top_inst/wRxDone" type="logic">
+      <obj_property name="ElementShortName">wRxDone</obj_property>
+      <obj_property name="ObjectShortName">wRxDone</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/uart_top_inst/wRxByte" type="array">
+      <obj_property name="ElementShortName">wRxByte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wRxByte[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/uart_top_inst/rFSM" type="array">
+      <obj_property name="ElementShortName">rFSM[2:0]</obj_property>
+      <obj_property name="ObjectShortName">rFSM[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/UART_TX_INST/oTxDone" type="logic">
+      <obj_property name="ElementShortName">oTxDone</obj_property>
+      <obj_property name="ObjectShortName">oTxDone</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/wTxDone" type="logic">
+      <obj_property name="ElementShortName">wTxDone</obj_property>
+      <obj_property name="ObjectShortName">wTxDone</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/uart_top_inst/UART_RX_INST/rRx2" type="logic">
+      <obj_property name="ElementShortName">rRx2</obj_property>
+      <obj_property name="ObjectShortName">rRx2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/uart_top_inst/UART_RX_INST/iRxSerial" type="logic">
+      <obj_property name="ElementShortName">iRxSerial</obj_property>
+      <obj_property name="ObjectShortName">iRxSerial</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/uart_top_inst/UART_TX_INST/iTxByte" type="array">
+      <obj_property name="ElementShortName">iTxByte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">iTxByte[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_top_TB/uart_top_inst/UART_TX_INST/oTxSerial" type="logic">
+      <obj_property name="ElementShortName">oTxSerial</obj_property>
+      <obj_property name="ObjectShortName">oTxSerial</obj_property>
+   </wvobject>
+</wave_config>
